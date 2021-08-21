@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public abstract class Motherboard implements FormFactor, PowerConsumer, CompositePowerConsumer {
+public abstract class Motherboard implements FormFactor, CompositePowerConsumer {
 
      // TODO whenever CPU, GPU , PCI cards are connected, add them to child power consumers
     public static Motherboard create(FormFactors formFactors) {

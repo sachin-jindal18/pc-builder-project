@@ -1,4 +1,6 @@
 package com.example.demo.core.components.cooler;
 
-public interface Cooler {
+import com.example.demo.core.compatibility.PowerConsumer;
+
+public interface Cooler  extends PowerConsumer {
 }
