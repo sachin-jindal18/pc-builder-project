@@ -1,6 +1,7 @@
 package com.example.demo.cli;
 
 import com.example.demo.core.PC;
+import com.example.demo.core.compatibility.FormFactors;
 import com.example.demo.core.components.Cabinet;
 import com.example.demo.core.components.Motherboard;
 import com.example.demo.core.components.PSU;
@@ -24,7 +25,7 @@ public class PCBuilderCli {
                 new KVM
                         .Builder().withDisplay(new Display()).withKeyboard(new Keyboard()).withMouse(new Mouse()).build())
                 .withTower(new Tower
-                        .Builder().withCabinet(new Cabinet()).withMotherboard(new Motherboard()).withPSU(new PSU()).build());
+                        .Builder().withCabinet(Cabinet.create(FormFactors.ATX)).withMotherboard(Motherboard.create(FormFactors.ATX)).withPSU(PSU.create(500)).build());
         return "Welcome to PC Builder";
     }
 }

@@ -3,7 +3,9 @@ package com.example.demo.core.systems;
 import com.example.demo.core.components.Cabinet;
 import com.example.demo.core.components.Motherboard;
 import com.example.demo.core.components.PSU;
+import lombok.Getter;
 
+@Getter
 public class Tower {
     private Motherboard motherboard;
     private Cabinet cabinet;
@@ -74,6 +76,10 @@ public class Tower {
 
             if (cabinet.formFactors().getSize() < motherboard.formFactors().getSize()) {
                 throw new IllegalStateException("cannot fit bigger motherboard in small cabinet");
+            }
+
+            if (psu.suppliedPower() < motherboard.consumedPower()) {
+                throw new IllegalStateException("PSU not sufficient for power needs");
             }
             var tower = new Tower(motherboard, cabinet, psu);
 
