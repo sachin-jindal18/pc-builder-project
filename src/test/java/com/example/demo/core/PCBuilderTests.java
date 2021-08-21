@@ -1,6 +1,5 @@
-package com.example.demo.cli;
+package com.example.demo.core;
 
-import com.example.demo.core.PC;
 import com.example.demo.core.components.Cabinet;
 import com.example.demo.core.components.Motherboard;
 import com.example.demo.core.components.PSU;
@@ -9,22 +8,17 @@ import com.example.demo.core.peripherals.Keyboard;
 import com.example.demo.core.peripherals.Mouse;
 import com.example.demo.core.systems.KVM;
 import com.example.demo.core.systems.Tower;
-import org.springframework.shell.standard.ShellComponent;
-import org.springframework.shell.standard.ShellMethod;
+import org.junit.jupiter.api.Test;
 
-@ShellComponent
-public class PCBuilderCli {
+public class PCBuilderTests {
 
-    public PCBuilderCli() {
-    }
-
-    @ShellMethod("Please help about this project")
-    public String build() {
+    @Test
+    public void canCreateBasicPCWithBuilder() {
         var pcBuilder = new PC.Builder().withKVM(
                 new KVM
                         .Builder().withDisplay(new Display()).withKeyboard(new Keyboard()).withMouse(new Mouse()).build())
                 .withTower(new Tower
                         .Builder().withCabinet(new Cabinet()).withMotherboard(new Motherboard()).withPSU(new PSU()).build());
-        return "Welcome to PC Builder";
+        System.out.println("Test Passed");
     }
 }
