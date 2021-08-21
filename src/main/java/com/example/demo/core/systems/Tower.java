@@ -54,7 +54,12 @@ public class Tower {
         //          -> replacing motherboard won't be possible
         //          -> all other installation will first check if motherboard exists or not.
         public Tower build() {
-            // TODO: Check fully configured logic here as well.
+
+            /**
+             *  TODO:
+             *      1. check PSU power >= motherboard  + cabinet power requirement.
+             *      2. cabinet size >= motherboard size
+             */
             if (cabinet == null) {
                 throw new IllegalStateException("Cannot built tower without a cabinet");
             }
@@ -65,6 +70,10 @@ public class Tower {
 
             if (psu == null) {
                 throw new IllegalStateException("Cannot built tower without a psu");
+            }
+
+            if (cabinet.formFactors().getSize() < motherboard.formFactors().getSize()) {
+                throw new IllegalStateException("cannot fit bigger motherboard in small cabinet");
             }
             var tower = new Tower(motherboard, cabinet, psu);
 
