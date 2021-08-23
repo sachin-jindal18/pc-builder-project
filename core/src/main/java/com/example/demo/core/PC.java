@@ -1,8 +1,8 @@
 package com.example.demo.core;
 
-import com.example.demo.core.systems.Tower;
-import com.example.demo.core.systems.KVM;
 import com.example.demo.core.peripherals.Peripheral;
+import com.example.demo.core.systems.KVM;
+import com.example.demo.core.systems.Tower;
 
 import java.util.ArrayList;
 import java.util.Arrays;
