@@ -10,6 +10,7 @@ public interface CompositePowerConsumer extends PowerConsumer {
     @Override
     default int consumedPower() {
         int consumePower = selfConsumedPower();
+
         for (PowerConsumer powerConsumer : getChildPowerConsumer()) {
             consumePower += powerConsumer.consumedPower();
         }

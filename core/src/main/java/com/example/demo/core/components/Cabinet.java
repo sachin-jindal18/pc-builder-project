@@ -5,6 +5,7 @@ import com.example.demo.core.compatibility.FormFactor;
 import com.example.demo.core.compatibility.FormFactors;
 import com.example.demo.core.compatibility.PowerConsumer;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Cabinet implements FormFactor , CompositePowerConsumer {
@@ -12,7 +13,7 @@ public abstract class Cabinet implements FormFactor , CompositePowerConsumer {
         return new Cabinet() {
             @Override
             public List<PowerConsumer> getChildPowerConsumer() {
-                return null;
+                return new ArrayList<>();
             }
 
             @Override
